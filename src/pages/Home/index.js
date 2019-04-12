@@ -12,11 +12,11 @@ export default class Home extends Component {
   handleSubmit = async evento => {
     evento.preventDefault();
 
-    const response = await api.post("boxes", {
+    const response = await api.post("box", {
       title: this.state.newBox
     });
 
-    this.props.history.push(`/boxes/${response.data._id}`);
+    this.props.history.push(`/box/${response.data._id}`);
   };
 
   handleInputChange = evento => {

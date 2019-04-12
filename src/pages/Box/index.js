@@ -16,7 +16,7 @@ export default class Box extends Component {
     this.subscribeToNewFiles();
 
     const box = this.props.match.params.id;
-    const response = await api.get(`/boxes/${box}`);
+    const response = await api.get(`/box/${box}`);
 
     this.setState({ box: response.data });
   }
@@ -41,7 +41,7 @@ export default class Box extends Component {
 
       data.append("file", file);
 
-      api.post(`/boxes/${box}/files`, data);
+      api.post(`/box/${box}/files`, data);
     });
   };
 
@@ -67,7 +67,7 @@ export default class Box extends Component {
           {this.state.box.files &&
             this.state.box.files.map(file => (
               <li key={file._id}>
-                <a className="fileInfo" href={file.url} target="_blank">
+                <a className="fileInfo" href={file.url} target="blank">
                   <MdInsertDriveFile size={24} color="#A5cfff" />
                   <strong>{file.title}</strong>
                 </a>
